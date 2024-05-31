@@ -46,8 +46,10 @@ struct ContentView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-
-        saveItems()
+            guard let index = offsets.first else { return }
+            let fruitEntity = fruits[index]
+            viewContext.delete(fruitEntity)
+            saveItems()
         }
     }
     

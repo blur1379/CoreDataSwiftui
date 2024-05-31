@@ -13,9 +13,9 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
+        for x in 0..<10 {
             let newItem = FruitEntity()
-            newItem.name = "Apple"
+            newItem.name = "Apple \(x)"
         }
         do {
             try viewContext.save()

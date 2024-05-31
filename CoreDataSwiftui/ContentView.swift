@@ -21,6 +21,7 @@ struct ContentView: View {
             List {
                 ForEach(fruits) { fruit in
                     Text("fruit \(fruit.name ?? "")")
+                        .onTapGesture { updateItem(fruit: fruit) }
                 }
                 .onDelete(perform: deleteItems)
             }
